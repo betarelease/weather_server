@@ -4,3 +4,4 @@ gem 'crack'
 gem 'httparty'
 
 gem 'sinatra'
+gem 'thin'
