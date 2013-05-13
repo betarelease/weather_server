@@ -9,7 +9,7 @@ configure do
   require File.join(File.dirname(__FILE__) + '/server.rb')
 
   enable :logging
-  log_file = File.join(root, "#{settings.environment}.log")
+  log_file = File.join("#{settings.root}", "#{settings.environment}.log")
   file = File.new(log_file, 'a+')
   file.sync = true
   use Rack::CommonLogger, file
