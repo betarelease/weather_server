@@ -4,8 +4,14 @@ Thread.new do
      weather = Weather.new(37.5483, -121.9875)
      weather.fetch
      weather.process_svg
-     `rsvg-convert --background-color=white -o weather-script-output.png weather-script-output.svg`
-     `pngcrush -c0 w4 weather-script-output.png weather.png`
-     `cp -f weather.png #{File.join(File.dirname(__FILE__) + "/public/weather.png")}`
+
+     stdin, stdout, stderr = Open3.popen3("rsvg-convert --background-color=white -o weather-script-output.png weather-script-output.svg")
+     puts "[DEBUG] stdin, stdout, stderr => #{stdin}, #{stdout}, #{stderr}"
+     
+     stdin, stdout, stderr = Open3.popen3("pngcrush -c0 w4 weather-script-output.png weather.png"
+     puts "[DEBUG] stdin, stdout, stderr => #{stdin}, #{stdout}, #{stderr}"
+
+     stdin, stdout, stderr = Open3.popen3("cp -f weather.png #{File.join(PUBLIC_FOLDER, 'weather.png')}")
+     puts "[DEBUG] stdin, stdout, stderr => #{stdin}, #{stdout}, #{stderr}"
   end
 end
