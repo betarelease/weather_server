@@ -41,16 +41,12 @@ class Weather
     output.gsub!('ICON_THREE',@icons[2])
     output.gsub!('ICON_FOUR', @icons[3])
     
-    # xml_day_one = dom.getElementsByTagName('start-valid-time')[0].firstChild.nodeValue[0:10]
-    # 
-    # # Insert days of week
-    # days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    # one_day = datetime.timedelta(days=1)
-    # 
-    # output.gsub!('DAY_ONE',days_of_week[day_one.weekday()])
-    # output.gsub!('DAY_TWO',days_of_week[(day_one + one_day).weekday()])
-    # output.gsub!('DAY_THREE',days_of_week[(day_one + 2*one_day).weekday()])
-    # output.gsub!('DAY_FOUR',days_of_week[(day_one + 3*one_day).weekday()])
+    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+    output.gsub!('DAY_ONE',days_of_week[@start_date.wday])
+    output.gsub!('DAY_TWO',days_of_week[@start_date.next_day.wday])
+    output.gsub!('DAY_THREE',days_of_week[@start_date.next_day.next_day.wday])
+    output.gsub!('DAY_FOUR',days_of_week[@start_date.next_day.next_day.next_day.wday])
     
 
     File.open("./weather-script-output.svg", "w") {|file| file.puts output}
