@@ -4,8 +4,9 @@ end
 
 get '/weather' do
   local_weather
-  logger.info "#{File.join(settings.public_folder, 'weather.png')}"
-  send_file "#{File.join(settings.public_folder, 'weather.png')}"
+  send_file "#{File.join(settings.public_folder, 'weather.png')}",
+      :type => 'image/png',
+      :disposition => 'inline'
 end
 
 def local_weather(latitude=37.5483, longitude=-121.9875)
