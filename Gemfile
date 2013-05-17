@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem 'crack'
+gem 'nokogiri'
+gem 'nori'
 gem 'httparty'
 
 gem 'sinatra'

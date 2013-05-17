@@ -1,5 +1,6 @@
+require 'nokogiri'
 require 'httparty'
-require 'crack'
+require 'nori'
 
 class Weather
   include HTTParty
@@ -13,7 +14,7 @@ class Weather
   def fetch
     @uri = "http://graphical.weather.gov/xml/SOAP_server/ndfdSOAPclientByDay.php?whichClient=NDFDgenByDay&lat=#{@latitude}&lon=#{@longitude}&format=24+hourly&numDays=4&Unit=e"
     response = self.class.get( "#{@uri}")
-    data = Crack::XML.parse( response.body )
+    data = Nori.new.parse( response.body )
     temperatures = data["dwml"]["data"]["parameters"]["temperature"]
     @highs = temperatures.first["value"]
     @lows = temperatures.last["value"]
