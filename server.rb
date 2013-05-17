@@ -16,6 +16,6 @@ def local_weather(latitude=37.5483, longitude=-121.9875)
   stdin, stdout, stderr = Open3.popen3("rsvg-convert --background-color=white -o weather.png weather-script-output.svg")
   logger.info("rsvg-convert => #{stdin}, #{stdout}, #{stderr}")
   
-  stdin, stdout, stderr = Open3.popen3("cp -f weather.png #{File.join(settings.public_folder, 'weather.png')}")
+  stdin, stdout, stderr = Open3.popen3("cp -f weather.png #{settings.public_folder}")
   logger.info( "cp => #{stdin}, #{stdout}, #{stderr}")
 end
