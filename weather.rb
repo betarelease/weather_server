@@ -36,10 +36,10 @@ class Weather
     output.gsub!('LOW_THREE', @lows[2])
     output.gsub!('LOW_FOUR',  @lows[3])
     
-    output.gsub!('ICON_ONE',  @icons[0])
-    output.gsub!('ICON_TWO',  @icons[1])
-    output.gsub!('ICON_THREE',@icons[2])
-    output.gsub!('ICON_FOUR', @icons[3])
+    output.gsub!('ICON_ONE',  @icons[0].gsub(/#/, ''))
+    output.gsub!('ICON_TWO',  @icons[1].gsub(/#/, ''))
+    output.gsub!('ICON_THREE',@icons[2].gsub(/#/, ''))
+    output.gsub!('ICON_FOUR', @icons[3].gsub(/#/, ''))
     
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
