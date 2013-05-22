@@ -2,3 +2,4 @@
 *.log
 public/
 Gemfile.lock
+weather-script-output.svg
