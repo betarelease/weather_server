@@ -28,17 +28,17 @@
 </defs>
 
 <g transform="scale(3.25) translate(5.055 20.166)">
-<use xlink:href="http://www.nws.noaa.gov/weather/images/fcicons/wind.jpg"/>
+<use xlink:href="#wind"/>
 </g>
 
 <g transform="scale(1.2) translate(34.167 399.725)">
-<use xlink:href="http://www.nws.noaa.gov/weather/images/fcicons/few.jpg"/>
+<use xlink:href="#few"/>
 </g>
 <g transform="scale(1.2) translate(200 399.725)">
-<use xlink:href="http://www.nws.noaa.gov/weather/images/fcicons/sct.jpg"/>
+<use xlink:href="#sct"/>
 </g>
 <g transform="scale(1.2) translate(365.833 399.725)">
-<use xlink:href="http://www.nws.noaa.gov/weather/images/fcicons/sct.jpg"/>
+<use xlink:href="#sct"/>
 </g>
 
 <g font-family="DejaVu Sans">
