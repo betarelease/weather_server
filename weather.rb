@@ -41,8 +41,7 @@ class Weather
     output.gsub!('#ICON_THREE',@icons[2])
     output.gsub!('#ICON_FOUR', @icons[3])
     
-    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
+    days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     output.gsub!('DAY_ONE',days_of_week[@start_date.wday])
     output.gsub!('DAY_TWO',days_of_week[@start_date.next_day.wday])
     output.gsub!('DAY_THREE',days_of_week[@start_date.next_day.next_day.wday])
