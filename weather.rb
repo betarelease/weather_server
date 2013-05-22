@@ -36,10 +36,14 @@ class Weather
     output.gsub!('LOW_THREE', @lows[2])
     output.gsub!('LOW_FOUR',  @lows[3])
     
-    output.gsub!('ICON_ONE',  @icons[0].split('/').last.split('.').first)
-    output.gsub!('ICON_TWO',  @icons[1].split('/').last.split('.').first)
-    output.gsub!('ICON_THREE',@icons[2].split('/').last.split('.').first)
-    output.gsub!('ICON_FOUR', @icons[3].split('/').last.split('.').first)
+    icons = []
+    @icons.each do |icon|
+      icons << icon.split('/').last.split('.').first
+    end
+    output.gsub!('ICON_ONE',  icons[0])
+    output.gsub!('ICON_TWO',  icons[1])
+    output.gsub!('ICON_THREE',icons[2])
+    output.gsub!('ICON_FOUR', icons[3])
     
     days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     output.gsub!('DAY_ONE',days_of_week[@start_date.wday])
